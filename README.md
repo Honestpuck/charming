@@ -2,9 +2,6 @@
 
 ## Python and IPython for Macintosh System Administration
 
-### Before we start
+This is the notes and examples from my workshop at the Apple University Consortium X World 2015 Conference held on the 8th and 9th of July at the University of Technology Sydney.
 
-**Install 'Anaconda' from [http://continuum.io/downloads](http://continuum.io/downloads)**
-
-This installs python and IPython onto your Mac without root permissions.
-
+Start at the Wiki.
