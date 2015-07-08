@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="section" class="slide section level3">
+<h1></h1>
+<h4 id="python-as-a-calculator">Python as a calculator</h4>
+<p>The interpreter acts as a simple calculator: you can type an expression at it and it will write the value. Expression syntax is straightforward: the operators +, -, * and / work just like in most other languages (for example, Pascal or C); parentheses (()) can be used for grouping. For example:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="dv">2</span> + <span class="dv">2</span>
+<span class="dv">4</span>
+&gt;&gt;&gt; <span class="dv">50</span> - <span class="dv">5</span>*<span class="dv">6</span>
+<span class="dv">20</span>
+&gt;&gt;&gt; (<span class="dv">50</span> - <span class="fl">5.0</span>*<span class="dv">6</span>) / <span class="dv">4</span>
+<span class="fl">5.0</span>
+&gt;&gt;&gt; <span class="dv">8</span> / <span class="fl">5.0</span>
+<span class="fl">1.6</span></code></pre>
+</div>
+<div id="section-1" class="slide section level3">
+<h1></h1>
+<p>The equal sign (=) is used to assign a value to a variable. Afterwards, no result is displayed before the next interactive prompt:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; width = <span class="dv">20</span>
+&gt;&gt;&gt; height = <span class="dv">5</span> * <span class="dv">9</span>
+&gt;&gt;&gt; width * height
+<span class="dv">900</span></code></pre>
+<p>If a variable is not “defined” (assigned a value), trying to use it will give you an error:</p>
+<pre><code>&gt;&gt;&gt;
+&gt;&gt;&gt; n  # try to access an undefined variable
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &#39;n&#39; is not defined</code></pre>
+</div>
+<div id="section-2" class="slide section level3">
+<h1></h1>
+<p>There is full support for floating point; operators with mixed type operands convert the integer operand to floating point:</p>
+<pre><code>&gt;&gt;&gt;
+&gt;&gt;&gt; 3 * 3.75 / 1.5
+7.5
+&gt;&gt;&gt; 7.0 / 2
+3.5</code></pre>
+<p>In interactive mode, the last printed expression is assigned to the variable _. This means that when you are using Python as a desk calculator, it is somewhat easier to continue calculations, for example:</p>
+<pre><code>&gt;&gt;&gt;
+&gt;&gt;&gt; tax = 12.5 / 100
+&gt;&gt;&gt; price = 100.50
+&gt;&gt;&gt; price * tax
+12.5625
+&gt;&gt;&gt; price + _
+113.0625
+&gt;&gt;&gt; round(_, 2)
+113.06</code></pre>
+</div>
+</body>
+</html>

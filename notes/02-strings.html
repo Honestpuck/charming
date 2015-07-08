@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="http://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="http://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div id="section" class="slide section level3">
+<h1></h1>
+<h4 id="strings">Strings</h4>
+<p>Besides numbers, Python can also manipulate strings, which can be expressed in several ways. They can be enclosed in single quotes ('...') or double quotes (&quot;...&quot;) with the same result. <code>\</code> can be used to escape quotes:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; <span class="st">&#39;spam eggs&#39;</span>  <span class="co"># single quotes</span>
+<span class="co">&#39;spam eggs&#39;</span>
+&gt;&gt;&gt; <span class="st">&#39;doesn</span><span class="ch">\&#39;</span><span class="st">t&#39;</span>  <span class="co"># use \&#39; to escape the single quote...</span>
+<span class="co">&quot;doesn&#39;t&quot;</span>
+&gt;&gt;&gt; <span class="st">&quot;doesn&#39;t&quot;</span>  <span class="co"># ...or use double quotes instead</span>
+<span class="co">&quot;doesn&#39;t&quot;</span>
+&gt;&gt;&gt; <span class="st">&#39;&quot;Yes,&quot; he said.&#39;</span>
+<span class="co">&#39;&quot;Yes,&quot; he said.&#39;</span>
+&gt;&gt;&gt; <span class="st">&quot;</span><span class="ch">\&quot;</span><span class="st">Yes,</span><span class="ch">\&quot;</span><span class="st"> he said.&quot;</span>
+<span class="co">&#39;&quot;Yes,&quot; he said.&#39;</span>
+&gt;&gt;&gt; <span class="st">&#39;&quot;Isn</span><span class="ch">\&#39;</span><span class="st">t,&quot; she said.&#39;</span>
+<span class="co">&#39;&quot;Isn\&#39;t,&quot; she said.&#39;</span></code></pre>
+</div>
+<div id="section-1" class="slide section level3">
+<h1></h1>
+<h4 id="literals">Literals</h4>
+<p>String literals can span multiple lines. One way is using triple-quotes: &quot;&quot;&quot;...&quot;&quot;&quot; or '''...'''. End of lines are automatically included in the string, but it’s possible to prevent this by adding a  at the end of the line. The following example:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">print</span> <span class="st">&quot;&quot;&quot;\</span>
+<span class="st">Usage: thingy [OPTIONS]</span>
+<span class="st">     -h                        Display this usage message</span>
+<span class="st">     -H hostname               Hostname to connect to</span>
+<span class="st">&quot;&quot;&quot;</span></code></pre>
+<p>produces the following output (note that the initial newline is not included):</p>
+<pre><code>Usage: thingy [OPTIONS]
+     -h                        Display this usage message
+     -H hostname               Hostname to connect to</code></pre>
+</div>
+<div id="section-2" class="slide section level3">
+<h1></h1>
+<h4 id="concatenation">Concatenation</h4>
+<p>Strings can be concatenated (glued together) with the + operator, and repeated with *:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; <span class="co"># 3 times &#39;un&#39;, followed by &#39;ium&#39;</span>
+&gt;&gt;&gt; <span class="dv">3</span> * <span class="st">&#39;un&#39;</span> + <span class="st">&#39;ium&#39;</span>
+<span class="co">&#39;unununium&#39;</span></code></pre>
+<p>Two or more string literals (i.e. the ones enclosed between quotes) next to each other are automatically concatenated.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; <span class="st">&#39;Py&#39;</span> <span class="st">&#39;thon&#39;</span>
+<span class="co">&#39;Python&#39;</span></code></pre>
+</div>
+<div id="section-3" class="slide section level3">
+<h1></h1>
+<p>This only works with two literals though, not with variables or expressions:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; prefix = <span class="st">&#39;Py&#39;</span>
+&gt;&gt;&gt; prefix <span class="st">&#39;thon&#39;</span>  <span class="co"># can&#39;t concatenate a variable and a string literal</span>
+  ...
+<span class="ot">SyntaxError</span>: invalid syntax
+&gt;&gt;&gt; (<span class="st">&#39;un&#39;</span> * <span class="dv">3</span>) <span class="st">&#39;ium&#39;</span>
+  ...
+<span class="ot">SyntaxError</span>: invalid syntax</code></pre>
+<p>If you want to concatenate variables or a variable and a literal, use +:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; prefix + <span class="st">&#39;thon&#39;</span>
+<span class="co">&#39;Python&#39;</span></code></pre>
+<p>This feature is particularly useful when you want to break long strings:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; text = (<span class="st">&#39;Put several strings within parentheses &#39;</span>
+            <span class="co">&#39;to have them joined together.&#39;</span>)
+&gt;&gt;&gt; text
+<span class="co">&#39;Put several strings within parentheses to have them joined together.&#39;</span></code></pre>
+</div>
+<div id="section-4" class="slide section level3">
+<h1></h1>
+<h4 id="string-indexing">String indexing</h4>
+<p>Strings can be indexed (subscripted), with the first character having index 0. There is no separate character type; a character is simply a string of size one:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word = <span class="st">&#39;Python&#39;</span>
+&gt;&gt;&gt; word[<span class="dv">0</span>]  <span class="co"># character in position 0</span>
+<span class="co">&#39;P&#39;</span>
+&gt;&gt;&gt; word[<span class="dv">5</span>]  <span class="co"># character in position 5</span>
+<span class="co">&#39;n&#39;</span></code></pre>
+<p>Indices may also be negative numbers, to start counting from the right:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word[-<span class="dv">1</span>]  <span class="co"># last character</span>
+<span class="co">&#39;n&#39;</span>
+&gt;&gt;&gt; word[-<span class="dv">2</span>]  <span class="co"># second-last character</span>
+<span class="co">&#39;o&#39;</span>
+&gt;&gt;&gt; word[-<span class="dv">6</span>]
+<span class="co">&#39;P&#39;</span></code></pre>
+<p>Note that since -0 is the same as 0, negative indices start from -1.</p>
+</div>
+<div id="section-5" class="slide section level3">
+<h1></h1>
+<p>In addition to indexing, slicing is also supported. While indexing is used to obtain individual characters, slicing allows you to obtain a substring:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word[<span class="dv">0</span>:<span class="dv">2</span>]  <span class="co"># characters from position 0 (included) to 2 (excluded)</span>
+<span class="co">&#39;Py&#39;</span>
+&gt;&gt;&gt; word[<span class="dv">2</span>:<span class="dv">5</span>]  <span class="co"># characters from position 2 (included) to 5 (excluded)</span>
+<span class="co">&#39;tho&#39;</span></code></pre>
+<p>Note how the start is always included, and the end always excluded. This makes sure that s[:i] + s[i:] is always equal to s:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word[:<span class="dv">2</span>] + word[<span class="dv">2</span>:]
+<span class="co">&#39;Python&#39;</span>
+&gt;&gt;&gt; word[:<span class="dv">4</span>] + word[<span class="dv">4</span>:]
+<span class="co">&#39;Python&#39;</span></code></pre>
+</div>
+<div id="section-6" class="slide section level3">
+<h1></h1>
+<p>Slice indices have useful defaults; an omitted first index defaults to zero, an omitted second index defaults to the size of the string being sliced.</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word[:<span class="dv">2</span>]  <span class="co"># character from the beginning to position 2 (excluded)</span>
+<span class="co">&#39;Py&#39;</span>
+&gt;&gt;&gt; word[<span class="dv">4</span>:]  <span class="co"># characters from position 4 (included) to the end</span>
+<span class="co">&#39;on&#39;</span>
+&gt;&gt;&gt; word[-<span class="dv">2</span>:] <span class="co"># characters from the second-last (included) to the end</span>
+<span class="co">&#39;on&#39;</span></code></pre>
+</div>
+<div id="section-7" class="slide section level3">
+<h1></h1>
+<p>One way to remember how slices work is to think of the indices as pointing between characters, with the left edge of the first character numbered 0. Then the right edge of the last character of a string of n characters has index n, for example:</p>
+<pre class="sourceCode python"><code class="sourceCode python"> +---+---+---+---+---+---+
+ | P | y | t | h | o | n |
+ +---+---+---+---+---+---+
+ <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">4</span>   <span class="dv">5</span>   <span class="dv">6</span>
+-<span class="dv">6</span>  -<span class="dv">5</span>  -<span class="dv">4</span>  -<span class="dv">3</span>  -<span class="dv">2</span>  -<span class="dv">1</span></code></pre>
+<p>The first row of numbers gives the position of the indices 0...6 in the string; the second row gives the corresponding negative indices. The slice from i to j consists of all characters between the edges labeled i and j, respectively. ### For non-negative indices, the length of a slice is the difference of the indices, if both are within bounds. For example, the length of word[1:3] is 2.</p>
+<p>Attempting to use a index that is too large will result in an error:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word[<span class="dv">42</span>]  <span class="co"># the word only has 6 characters</span>
+Traceback (most recent call last):
+  File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span>, in &lt;module&gt;
+<span class="ot">IndexError</span>: string index out of <span class="dt">range</span></code></pre>
+</div>
+<div id="section-8" class="slide section level3">
+<h1></h1>
+<p>However, out of range slice indexes are handled gracefully when used for slicing:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; word[<span class="dv">4</span>:<span class="dv">42</span>]
+<span class="co">&#39;on&#39;</span>
+&gt;&gt;&gt; word[<span class="dv">42</span>:]
+<span class="co">&#39;&#39;</span></code></pre>
+<p>The built-in function len() returns the length of a string:</p>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt;
+&gt;&gt;&gt; s = <span class="st">&#39;supercalifragilisticexpialidocious&#39;</span>
+&gt;&gt;&gt; <span class="dt">len</span>(s)
+<span class="dv">34</span></code></pre>
+</div>
+</body>
+</html>
