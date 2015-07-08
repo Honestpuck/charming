@@ -6,7 +6,7 @@ Let's start with a list of files.
 ``` python
 cd /Applications/Utilities
 utils = !ls
-``
+```
 
 We now have an Slist. Have a look at it.
 

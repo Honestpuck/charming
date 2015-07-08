@@ -17,16 +17,37 @@
 <div id="section" class="slide section level3">
 <h1></h1>
 <h4 id="starting-ipython">Starting IPython</h4>
-<ul>
-<li><code>ipython</code> - run IPython.</li>
-<li><code>ipython qtconsole</code> - runs ipython in QT window.</li>
-<li><code>ipython qtconsole --matplotlib=inline</code> - runs ipython in QT window with inline plotting</li>
-<li><code>ipython notebook</code> - runs the IPython notebook server</li>
-<li><code>ipython --help | less</code> - IPython man page</li>
-<li><code>ipython --help-all | less</code> - IPython man page with <em>all</em> command line options.</li>
-</ul>
-<h4 id="the-four-most-helpful-commands">The four most helpful commands</h4>
-<p>The four most helpful commands, as well as their brief description, is shown to you in a banner, every time you start IPython:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">command</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ipython</td>
+<td align="left">run IPython</td>
+</tr>
+<tr class="even">
+<td align="left">ipython qtconsole</td>
+<td align="left">runs ipython in QT window</td>
+</tr>
+<tr class="odd">
+<td align="left">ipython notebook</td>
+<td align="left">runs the IPython notebook server</td>
+</tr>
+<tr class="even">
+<td align="left">ipython --help</td>
+<td align="left">IPython man page</td>
+</tr>
+<tr class="odd">
+<td align="left">ipython --help-all</td>
+<td align="left">IPython man page with <em>all</em> command line options.</td>
+</tr>
+</tbody>
+</table>
+<p>The four most helpful commands, as well as their brief description, are shown to you in a banner, every time you start IPython:</p>
 <table>
 <thead>
 <tr class="header">
@@ -91,7 +112,7 @@ In [2]: %%timeit x = range(10000)
 <h1></h1>
 <h4 id="history">History</h4>
 <p>IPython stores both the commands you enter, and the results it produces. You can easily go through previous commands with the up- and down-arrow keys, or access your history in more sophisticated ways.</p>
-<p>Input and output history are kept in variables called In and Out, keyed by the prompt numbers, e.g. In[4]. The last three objects in output history are also kept in variables named <em>, <strong> and </strong></em>.</p>
+<p>Input and output history are kept in variables called In and Out, keyed by the prompt numbers, e.g. In[4]. The last three objects in output history are also kept in variables named <code>_</code>, <code>__</code> and <code>___</code>.</p>
 <p>You can use the %history magic function to examine past input and output. Input history from previous sessions is saved in a database, and IPython can be configured to save output history.</p>
 <p>Several other magic functions can use your input history, including %edit, %rerun, %recall, %macro, %save and %pastebin. You can use a standard format to refer to lines:</p>
 <pre><code>%pastebin 3 18-20 ~1/1-5</code></pre>
@@ -102,13 +123,40 @@ In [2]: %%timeit x = range(10000)
 <h4 id="explore-the-magic-functions">Explore The Magic Functions</h4>
 <h5 id="bookmark">%bookmark</h5>
 <p><code>bookmark</code> is a directory bookmarking system.</p>
-| command | description | |:----------------------|:----------------------------| | bookmark <name> | set bookmark to current dir | | bookmark <name>
-<dir>
-| set bookmark to
-<dir>
-<pre><code>   |</code></pre>
-<p>bookmark -l | list all bookmarks |<br />bookmark -d <name> | remove bookmark |<br />bookmark -r | remove all bookmarks |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">command</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">bookmark name</td>
+<td align="left">set bookmark to current dir</td>
+</tr>
+<tr class="even">
+<td align="left">bookmark name dir</td>
+<td align="left">set bookmark to dir</td>
+</tr>
+<tr class="odd">
+<td align="left">bookmark -l</td>
+<td align="left">list all bookmarks</td>
+</tr>
+<tr class="even">
+<td align="left">bookmark -d name</td>
+<td align="left">remove bookmark</td>
+</tr>
+<tr class="odd">
+<td align="left">bookmark -r</td>
+<td align="left">remove all bookmarks</td>
+</tr>
+</tbody>
+</table>
 <p>Then <code>cd -b &lt;name&gt;</code> or just <code>cd &lt;name&gt;</code> if there is no directory called <name> AND there is such a bookmark defined. (The latter is why I usually use two or three letter bookmark names.)</p>
+</div>
+<div id="section-6" class="slide section level3">
+<h1></h1>
 <h5 id="cd">%cd</h5>
 <p>The <code>cd</code> magic is necessary (and nicely enhanced) as the system <code>cd</code> won't work. It keeps a history of the directories visited.</p>
 <table>
@@ -121,7 +169,7 @@ In [2]: %%timeit x = range(10000)
 <tbody>
 <tr class="odd">
 <td align="left">cd</td>
-<td align="left">changes to ~</td>
+<td align="left">changes to <code>~</code></td>
 </tr>
 <tr class="even">
 <td align="left">cd 'dir'</td>
@@ -132,28 +180,51 @@ In [2]: %%timeit x = range(10000)
 <td align="left">changes to previous directory</td>
 </tr>
 <tr class="even">
-<td align="left">cd -<n></td>
-<td align="left">changes to directory <n> in directory history</td>
+<td align="left">cd -<code>&lt;n&gt;</code></td>
+<td align="left">changes to directory <code>&lt;n&gt;</code> in directory history</td>
 </tr>
 <tr class="odd">
 <td align="left">cd --foo</td>
 <td align="left">changes to directory that matches 'foo' in history</td>
 </tr>
 <tr class="even">
-<td align="left">cd -b <name></td>
-<td align="left">jump to bookmark <name></td>
+<td align="left">cd -b <code>&lt;name&gt;</code></td>
+<td align="left">jump to bookmark <code>&lt;name&gt;</code></td>
 </tr>
 </tbody>
 </table>
-<p>%dhist prints the directory history and %dhist <n> prints the last <n> entries.</p>
+<p><code>%dhist</code> prints the directory history and <code>%dhist &lt;n&gt;</code> prints the last <code>&lt;n&gt;</code> entries.</p>
+</div>
+<div id="section-7" class="slide section level3">
+<h1></h1>
 <h5 id="the-directory-stack">The directory stack</h5>
 <p>As well as a history of directories IPython also has a directory stack.</p>
-| command | description | |:-------------|:-------------------------------------------------| | dirs | list directory stack | | pushd | push the current directory onto the stack | | pushd
-<dir>
-| push the current directory and cd to
-<dir>
-<pre><code>   |</code></pre>
-<p>popd | pop the top directory off the stack and cd to it |</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">command</th>
+<th align="left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">dirs</td>
+<td align="left">list directory stack</td>
+</tr>
+<tr class="even">
+<td align="left">pushd</td>
+<td align="left">push the current directory onto the stack</td>
+</tr>
+<tr class="odd">
+<td align="left">pushd <code>&lt;dir&gt;</code></td>
+<td align="left">push the current directory and cd to <code>&lt;dir&gt;</code></td>
+</tr>
+<tr class="even">
+<td align="left">popd</td>
+<td align="left">pop the top directory off the stack and cd to it</td>
+</tr>
+</tbody>
+</table>
 <h5 id="edit">%edit</h5>
 <p><code>edit</code> opens things in the editor you have defined in your $EDITOR environment variable.</p>
 </div>

@@ -4,7 +4,8 @@
 Here are some prompt configurations you can try out interactively by using the %config magic:
 
 ```
-%config PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
+%config PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}\
+[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
 %config PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
 %config PromptManager.out_template = r'<\#> '
 ```
@@ -12,7 +13,8 @@ Here are some prompt configurations you can try out interactively by using the %
 You can change the prompt configuration to your liking permanently by editing ipython_config.py:
 
 ```
-c.PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
+c.PromptManager.in_template = r'{color.LightGreen}\u@\h{color.LightBlue}\
+[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#> '
 c.PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
 c.PromptManager.out_template = r'<\#> '
 ```

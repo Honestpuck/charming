@@ -1,0 +1,7 @@
+The Slidy HTML files are produced by pandoc. As an example :-
+
+pandoc 05-map.md -o 05-map.html -f markdown+pipe_tables \
+-t slidy --standalone --slide-level=3
+
+pandoc can be found at <http://pandoc.org>
+

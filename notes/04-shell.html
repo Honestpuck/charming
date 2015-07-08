@@ -18,11 +18,13 @@
 <h1></h1>
 <h4 id="prompt-customization">Prompt customization</h4>
 <p>Here are some prompt configurations you can try out interactively by using the %config magic:</p>
-<pre><code>%config PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
+<pre><code>%config PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}\
+[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
 %config PromptManager.in2_template = r&#39;{color.Green}|{color.LightGreen}\D{color.Green}&gt; &#39;
 %config PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 <p>You can change the prompt configuration to your liking permanently by editing ipython_config.py:</p>
-<pre><code>c.PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
+<pre><code>c.PromptManager.in_template = r&#39;{color.LightGreen}\u@\h{color.LightBlue}\
+[{color.LightCyan}\Y1{color.LightBlue}]{color.Green}|\#&gt; &#39;
 c.PromptManager.in2_template = r&#39;{color.Green}|{color.LightGreen}\D{color.Green}&gt; &#39;
 c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 <p>Read more about the configuration system for details on how to find ipython_config.py.</p>
