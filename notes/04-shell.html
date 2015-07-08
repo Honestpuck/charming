@@ -31,22 +31,6 @@ c.PromptManager.out_template = r&#39;&lt;\#&gt; &#39;</code></pre>
 </div>
 <div id="section-1" class="slide section level3">
 <h1></h1>
-<h4 id="directory-management">Directory management</h4>
-<p>Since each command passed by ipython to the underlying system is executed in a subshell which exits immediately, you can NOT use !cd to navigate the filesystem.</p>
-<p>IPython provides its own builtin %cd magic command to move in the filesystem (the % is not required with automagic on). It also maintains a list of visited directories (use %dhist to see it) and allows direct switching to any of them. Type cd? for more details.</p>
-<p>%pushd, %popd and %dirs are provided for directory stack handling.</p>
-<pre><code>tonyw@Enzo[~]|29&gt; dhist
-Directory history (kept in _dh)
-0: /Users/tonyw
-1: /Users/tonyw/pollen
-2: /Users/tonyw/Dropbox/Notes
-3: /Users/tonyw
-
-tonyw@Enzo[~]|30&gt; cd -1
-/Users/tonyw/pollen</code></pre>
-</div>
-<div id="section-2" class="slide section level3">
-<h1></h1>
 <h4 id="string-lists">String lists</h4>
 <p>String lists (IPython.utils.text.SList) are handy way to process output from system commands. They are produced by var = !cmd syntax.</p>
 <p>First, we acquire the output of ‘ls -l’:</p>
@@ -61,7 +45,7 @@ tonyw@Enzo[~]|30&gt; cd -1
  &#39;-rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py&#39;,
  &#39;-rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc&#39;]</code></pre>
 </div>
-<div id="section-3" class="slide section level3">
+<div id="section-2" class="slide section level3">
 <h1></h1>
 <p>Now, let’s take a look at the contents of ‘lines’ (the first number is the list element number):</p>
 <pre><code>[Q:doc/examples]|3&gt; lines
@@ -76,7 +60,7 @@ tonyw@Enzo[~]|30&gt; cd -1
 6: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
 7: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc</code></pre>
 </div>
-<div id="section-4" class="slide section level3">
+<div id="section-3" class="slide section level3">
 <h1></h1>
 <p>Now, let’s filter out the ‘embed’ lines:</p>
 <pre><code>[Q:doc/examples]|4&gt; l2 = lines.grep(&#39;embed&#39;,prune=1)
@@ -90,7 +74,7 @@ tonyw@Enzo[~]|30&gt; cd -1
 4: -rwxrwxrwx 1 ville None  113 Dec 20  2006 seteditor.py
 5: -rwxrwxrwx 1 ville None  245 Dec 12  2006 seteditor.pyc</code></pre>
 </div>
-<div id="section-5" class="slide section level3">
+<div id="section-4" class="slide section level3">
 <h1></h1>
 <p>Now, we want strings having just file names and permissions:</p>
 <pre><code>[Q:doc/examples]|6&gt; l2.fields(8,0)
@@ -104,7 +88,7 @@ tonyw@Enzo[~]|30&gt; cd -1
 5: seteditor.pyc -rwxrwxrwx</code></pre>
 <p>Note how the line with ‘total’ does not raise IndexError.</p>
 </div>
-<div id="section-6" class="slide section level3">
+<div id="section-5" class="slide section level3">
 <h1></h1>
 <p>If you want to split these (yielding lists), call fields() without arguments:</p>
 <pre><code>[Q:doc/examples]|7&gt; _.fields()
@@ -116,7 +100,7 @@ tonyw@Enzo[~]|30&gt; cd -1
  [&#39;seteditor.py&#39;, &#39;-rwxrwxrwx&#39;],
  [&#39;seteditor.pyc&#39;, &#39;-rwxrwxrwx&#39;]]</code></pre>
 </div>
-<div id="section-7" class="slide section level3">
+<div id="section-6" class="slide section level3">
 <h1></h1>
 <p>If you want to pass these separated with spaces to a command (typical for lists if files), use the .s property:</p>
 <pre><code>[Q:doc/examples]|13&gt; files = l2.fields(8).s
