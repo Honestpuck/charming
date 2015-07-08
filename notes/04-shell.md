@@ -22,27 +22,6 @@ c.PromptManager.out_template = r'<\#> '
 Read more about the configuration system for details on how to find ipython_config.py.
 
 ###
-#### Directory management
-Since each command passed by ipython to the underlying system is executed in a subshell which exits immediately, you can NOT use !cd to navigate the filesystem.
-
-IPython provides its own builtin %cd magic command to move in the filesystem (the % is not required with automagic on). It also maintains a list of visited directories (use %dhist to see it) and allows direct switching to any of them. Type cd? for more details.
-
-%pushd, %popd and %dirs are provided for directory stack handling.
-
-```
-tonyw@Enzo[~]|29> dhist
-Directory history (kept in _dh)
-0: /Users/tonyw
-1: /Users/tonyw/pollen
-2: /Users/tonyw/Dropbox/Notes
-3: /Users/tonyw
-
-tonyw@Enzo[~]|30> cd -1
-/Users/tonyw/pollen
-```
-
-
-###
 #### String lists
 String lists (IPython.utils.text.SList) are handy way to process output from system commands. They are produced by var = !cmd syntax.
 
