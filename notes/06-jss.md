@@ -19,8 +19,6 @@ Notice that python-jss pretty prints the list. Note also
 that it doesn't retrieve all the information, just the name
 and id.
 
-###
-
 Put the result in a variable and
 format it yourself.
 
@@ -30,14 +28,14 @@ for i in computers:
     print "id:"+str(i.id)+" name:"+i.name
 ```
 
-Now get the record of one computer. Rhis will get **all** the record.
+###
+
+Now get the record of one computer. This will get **all** the record.
 
 ```
 example = j.Computer(193)
 example
 ```
-
-###
 
 We can view that with `less` using the `page` magic.
 
@@ -52,10 +50,12 @@ example.serial_number
 example.mac_addresses
 ```
 
+
+###
+
 Other information requires some XML work. XML is a tree of nodes and
 we have to work with those nodes.
  
-###
 Let's get a list of installed applications. `findall()` will return a list
 of nodes that match our search string. `find()` returns a single child node that
 matches.
@@ -90,10 +90,21 @@ os = comp.findall('.//os_version')
 os[0].text
 ```
 
+Lets get *all* the computer records. (_This might take a while._)
+
+```
 all_computers = j.Computer().retrieve_all()
+```
 
+Now iterate over them 
 
+```
+for computer in all_computers:
+    model = computer.findtext('model')
+    os = computer.findtext('os_version')
+```
 
+### Let's Explore
 
 
 
